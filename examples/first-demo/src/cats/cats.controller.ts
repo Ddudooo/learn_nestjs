@@ -1,10 +1,13 @@
 import { Controller, Get, Post, Put, Delete, Req, HttpCode, Header, Redirect, Query, Param, Body } from '@nestjs/common';
 import { Request } from 'express';
 
+import { CatsService } from './cats.service';
+import { Cat } from './interfaces/cat.interface';
 import { CreateCatForm, UpdateCatForm } from './dto/index.dto';
 
 @Controller('cats')
 export class CatsController {
+    constructor(private catsService: CatsService){}
 
     @Get("/docs")
     @Redirect('https://docs.nestjs.com', 302)
@@ -15,9 +18,9 @@ export class CatsController {
     }
 
     @Get()
-    findAll(@Req() request : Request): string {
+    async findAll(@Req() request : Request): Promise<Cat[]> {
         // TODO: 모든 고양이 반환
-        return `모든 고양이 반환`;
+        return this.catsService.findAll();
     }
 
     @Get(':id')
@@ -29,10 +32,9 @@ export class CatsController {
     @Post()
     // @HttpCode(204) - HTTP 상태 코드를 데코레이터를 통해 편하게 설정할 수 있다.
     // @Header('Cache-Control', 'none') - HTTP 응답 헤더 값을 데코레이터를 통해 설정
-    async create(@Body() createCatForm: CreateCatForm): Promise<string> {
+    async create(@Body() createCatForm: CreateCatForm) {
         // TODO: 리소스 생성
-
-        return `새로운 고양이 생성`;
+        this.catsService.create(createCatForm);
     }
 
     @Put(':id')
