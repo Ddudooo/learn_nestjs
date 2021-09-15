@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: orm
+    ports:
+      - '3306:3306'
