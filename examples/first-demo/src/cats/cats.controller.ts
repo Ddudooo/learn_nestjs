@@ -11,6 +11,7 @@ import {
   Query,
   Param,
   Body,
+  UsePipes,
 } from '@nestjs/common';
 import { Request } from 'express';
 
@@ -18,6 +19,8 @@ import { CatsService } from './cats.service';
 import { Cat } from './interfaces/cat.interface';
 import { CreateCatForm, UpdateCatForm } from './dto/index.dto';
 import { ValidationPipe } from 'src/pipes/ValidationPipe.pipe';
+import { ReqFindOption } from './pipes/reqFindOption.pipe';
+import { FindOption } from './dto/request/findOption.dto';
 
 @Controller('cats')
 export class CatsController {
@@ -32,8 +35,10 @@ export class CatsController {
   }
 
   @Get()
-  async findAll(@Req() request: Request): Promise<Cat[]> {
+  @UsePipes(new ReqFindOption())
+  async findAll(@Query() option: FindOption): Promise<Cat[]> {
     // TODO: 모든 고양이 반환
+    console.log(option);
     return this.catsService.findAll();
   }
 
