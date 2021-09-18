@@ -39,7 +39,7 @@ export class CatsController {
   async findAll(@Query() option: FindOption): Promise<Cat[]> {
     // TODO: 모든 고양이 반환
     console.log(option);
-    return this.catsService.findAll();
+    return this.catsService.findAll(option);
   }
 
   @Get(':id')

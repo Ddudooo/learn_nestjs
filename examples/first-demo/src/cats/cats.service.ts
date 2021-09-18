@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Connection, Repository } from 'typeorm';
-import { Cat as CatEntity } from './entity/cat.entity';
+import { FindOption } from './dto/request/findOption.dto';
+import { Cat, Cat as CatEntity } from './entity/cat.entity';
 import { Cat } from './interfaces/cat.interface';
 
 @Injectable()
@@ -24,8 +25,16 @@ export class CatsService {
     });
   }
 
-  findAll(): Promise<Cat[]> {
-    //return this.cats;
-    return this.catRepository.find();
+  async findAll(option: FindOption): Promise<Cat[]> {
+    return await this.connection.transaction(async (manager) => {
+      return await manager
+        .createQueryBuilder()
+        .select('cat')
+        .from(Cat, 'cat')
+        .offset(option.offset)
+        .limit(option.offset + option.pageSize)
+        .getMany();
+      //.orderby
+    });
   }
 }
