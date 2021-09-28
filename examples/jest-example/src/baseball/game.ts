@@ -16,11 +16,16 @@ export class Game {
     const matchResult: Result = new Result();
     for (const [index, ball] of req.reqBalls.entries()) {
       if (this.balls.includes(ball)) {
-        if (this.balls.indexOf(ball) == index) matchResult.addStrike;
-        else matchResult.addBall;
+        this.isBall(ball, index)
+          ? matchResult.addStrike()
+          : matchResult.addBall();
       }
     }
     this.turn++;
     return matchResult;
+  }
+
+  private isBall(ball: number, index: number) {
+    return this.balls.indexOf(ball) == index;
   }
 }

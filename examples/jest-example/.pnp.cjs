@@ -36,6 +36,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["@types/chance", "npm:1.1.3"],
+            ["@types/faker", "npm:5.5.8"],
             ["@types/jest", "npm:27.0.2"],
             ["@types/node", "npm:16.10.1"],
             ["@typescript-eslint/eslint-plugin", "virtual:3922c85d5ff62fac87c7e3c7108b51037aaa47351548884028832e6fa61c7517c60396b4078a6352af683fc608c2bfd48d429a2e2710964fd4dab95b639e2a99#npm:4.31.2"],
@@ -44,6 +45,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:7.32.0"],
             ["eslint-config-prettier", "virtual:3922c85d5ff62fac87c7e3c7108b51037aaa47351548884028832e6fa61c7517c60396b4078a6352af683fc608c2bfd48d429a2e2710964fd4dab95b639e2a99#npm:8.3.0"],
             ["eslint-plugin-prettier", "virtual:3922c85d5ff62fac87c7e3c7108b51037aaa47351548884028832e6fa61c7517c60396b4078a6352af683fc608c2bfd48d429a2e2710964fd4dab95b639e2a99#npm:4.0.0"],
+            ["faker", "npm:5.5.3"],
             ["jest", "virtual:3922c85d5ff62fac87c7e3c7108b51037aaa47351548884028832e6fa61c7517c60396b4078a6352af683fc608c2bfd48d429a2e2710964fd4dab95b639e2a99#npm:27.2.2"],
             ["prettier", "npm:2.4.1"],
             ["ts-jest", "virtual:3922c85d5ff62fac87c7e3c7108b51037aaa47351548884028832e6fa61c7517c60396b4078a6352af683fc608c2bfd48d429a2e2710964fd4dab95b639e2a99#npm:27.0.5"],
@@ -1320,6 +1322,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-chance-npm-1.1.3-42a937aa7b-df2be43fab.zip/node_modules/@types/chance/",
           "packageDependencies": [
             ["@types/chance", "npm:1.1.3"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/faker", [
+        ["npm:5.5.8", {
+          "packageLocation": "./.yarn/cache/@types-faker-npm-5.5.8-2a7f5f5744-eb642cac27.zip/node_modules/@types/faker/",
+          "packageDependencies": [
+            ["@types/faker", "npm:5.5.8"]
           ],
           "linkType": "HARD",
         }]
@@ -2954,6 +2965,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["faker", [
+        ["npm:5.5.3", {
+          "packageLocation": "./.yarn/cache/faker-npm-5.5.3-541ce97798-684fd64c8d.zip/node_modules/faker/",
+          "packageDependencies": [
+            ["faker", "npm:5.5.3"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["fast-deep-equal", [
         ["npm:3.1.3", {
           "packageLocation": "./.yarn/cache/fast-deep-equal-npm-3.1.3-790edcfcf5-e21a9d8d84.zip/node_modules/fast-deep-equal/",
@@ -3878,6 +3898,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["jest-example", "workspace:."],
             ["@types/chance", "npm:1.1.3"],
+            ["@types/faker", "npm:5.5.8"],
             ["@types/jest", "npm:27.0.2"],
             ["@types/node", "npm:16.10.1"],
             ["@typescript-eslint/eslint-plugin", "virtual:3922c85d5ff62fac87c7e3c7108b51037aaa47351548884028832e6fa61c7517c60396b4078a6352af683fc608c2bfd48d429a2e2710964fd4dab95b639e2a99#npm:4.31.2"],
@@ -3886,6 +3907,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:7.32.0"],
             ["eslint-config-prettier", "virtual:3922c85d5ff62fac87c7e3c7108b51037aaa47351548884028832e6fa61c7517c60396b4078a6352af683fc608c2bfd48d429a2e2710964fd4dab95b639e2a99#npm:8.3.0"],
             ["eslint-plugin-prettier", "virtual:3922c85d5ff62fac87c7e3c7108b51037aaa47351548884028832e6fa61c7517c60396b4078a6352af683fc608c2bfd48d429a2e2710964fd4dab95b639e2a99#npm:4.0.0"],
+            ["faker", "npm:5.5.3"],
             ["jest", "virtual:3922c85d5ff62fac87c7e3c7108b51037aaa47351548884028832e6fa61c7517c60396b4078a6352af683fc608c2bfd48d429a2e2710964fd4dab95b639e2a99#npm:27.2.2"],
             ["prettier", "npm:2.4.1"],
             ["ts-jest", "virtual:3922c85d5ff62fac87c7e3c7108b51037aaa47351548884028832e6fa61c7517c60396b4078a6352af683fc608c2bfd48d429a2e2710964fd4dab95b639e2a99#npm:27.0.5"],
