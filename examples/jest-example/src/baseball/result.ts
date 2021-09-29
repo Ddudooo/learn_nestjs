@@ -1,20 +1,25 @@
 export class Result {
-  private ball: number;
-  private strike: number;
+  private readonly _ball: number;
+  private readonly _strike: number;
 
-  constructor() {
-    this.ball = 0;
-    this.strike = 0;
+  constructor(ball?: number, strike?: number) {
+    this._ball = ball || 0;
+    this._strike = strike || 0;
   }
 
-  public addBall = () => this.ball++;
-  public addStrike = () => this.strike++;
+  get ball(): number {
+    return this._ball;
+  }
+
+  get strike(): number {
+    return this._strike;
+  }
 
   public isHomeRun(): boolean {
-    return this.strike === 3;
+    return this._strike === 3;
   }
 
   public isOut(): boolean {
-    return this.ball === 0 && this.strike === 0;
+    return this._ball === 0 && this._strike === 0;
   }
 }

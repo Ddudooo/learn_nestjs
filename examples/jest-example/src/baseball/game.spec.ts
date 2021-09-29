@@ -12,4 +12,17 @@ describe('게임 테스트', () => {
 
     expect(result.isOut()).toBeTruthy();
   });
+
+  it.each`
+    request      | ball | strike
+    ${[1, 2, 3]} | ${0} | ${0}
+  `(
+    `요청이 [$request]일때, 게임 결과는 {ball = $ball, strike = $strike}가 나와야 한다.`,
+    async ({ request, ball, strike }) => {
+      const result = game.matching({ reqBalls: request });
+
+      expect(result.ball).toEqual(ball);
+      expect(result.strike).toEqual(strike);
+    },
+  );
 });
