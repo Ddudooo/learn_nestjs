@@ -54,5 +54,9 @@
   },
   "installConfig": {
     "pnp": true
+  },
+  "dependencies": {
+    "@types/chalk": "^2.2.0",
+    "chalk": "^4.1.2"
   }
 }

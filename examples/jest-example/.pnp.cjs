@@ -35,12 +35,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {
           "packageLocation": "./",
           "packageDependencies": [
+            ["@types/chalk", "npm:2.2.0"],
             ["@types/chance", "npm:1.1.3"],
             ["@types/faker", "npm:5.5.8"],
             ["@types/jest", "npm:27.0.2"],
             ["@types/node", "npm:16.10.1"],
             ["@typescript-eslint/eslint-plugin", "virtual:3922c85d5ff62fac87c7e3c7108b51037aaa47351548884028832e6fa61c7517c60396b4078a6352af683fc608c2bfd48d429a2e2710964fd4dab95b639e2a99#npm:4.31.2"],
             ["@typescript-eslint/parser", "virtual:3922c85d5ff62fac87c7e3c7108b51037aaa47351548884028832e6fa61c7517c60396b4078a6352af683fc608c2bfd48d429a2e2710964fd4dab95b639e2a99#npm:4.31.2"],
+            ["chalk", "npm:4.1.2"],
             ["chance", "npm:1.1.8"],
             ["eslint", "npm:7.32.0"],
             ["eslint-config-prettier", "virtual:3922c85d5ff62fac87c7e3c7108b51037aaa47351548884028832e6fa61c7517c60396b4078a6352af683fc608c2bfd48d429a2e2710964fd4dab95b639e2a99#npm:8.3.0"],
@@ -1313,6 +1315,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@types/babel__traverse", "npm:7.14.2"],
             ["@babel/types", "npm:7.15.6"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/chalk", [
+        ["npm:2.2.0", {
+          "packageLocation": "./.yarn/cache/@types-chalk-npm-2.2.0-aa14c60d4f-846437590d.zip/node_modules/@types/chalk/",
+          "packageDependencies": [
+            ["@types/chalk", "npm:2.2.0"],
+            ["chalk", "npm:4.1.2"]
           ],
           "linkType": "HARD",
         }]
@@ -3897,12 +3909,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["jest-example", "workspace:."],
+            ["@types/chalk", "npm:2.2.0"],
             ["@types/chance", "npm:1.1.3"],
             ["@types/faker", "npm:5.5.8"],
             ["@types/jest", "npm:27.0.2"],
             ["@types/node", "npm:16.10.1"],
             ["@typescript-eslint/eslint-plugin", "virtual:3922c85d5ff62fac87c7e3c7108b51037aaa47351548884028832e6fa61c7517c60396b4078a6352af683fc608c2bfd48d429a2e2710964fd4dab95b639e2a99#npm:4.31.2"],
             ["@typescript-eslint/parser", "virtual:3922c85d5ff62fac87c7e3c7108b51037aaa47351548884028832e6fa61c7517c60396b4078a6352af683fc608c2bfd48d429a2e2710964fd4dab95b639e2a99#npm:4.31.2"],
+            ["chalk", "npm:4.1.2"],
             ["chance", "npm:1.1.8"],
             ["eslint", "npm:7.32.0"],
             ["eslint-config-prettier", "virtual:3922c85d5ff62fac87c7e3c7108b51037aaa47351548884028832e6fa61c7517c60396b4078a6352af683fc608c2bfd48d429a2e2710964fd4dab95b639e2a99#npm:8.3.0"],
