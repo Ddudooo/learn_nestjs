@@ -5,6 +5,8 @@ export class Result {
   constructor(ball?: number, strike?: number) {
     this._ball = ball || 0;
     this._strike = strike || 0;
+    console.log(this._ball);
+    console.log(this._strike);
   }
 
   get ball(): number {
