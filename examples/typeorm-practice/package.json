@@ -1,0 +1,23 @@
+{
+  "name": "typeorm-practice",
+  "version": "0.0.1",
+  "description": "typeorm 연습용",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "pg": "^8.7.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.38"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.1",
+    "eslint-plugin-json-format": "^2.0.1",
+    "typescript": "^4.4.4"
+  },
+  "installConfig": {
+    "pnp": true
+  }
+}

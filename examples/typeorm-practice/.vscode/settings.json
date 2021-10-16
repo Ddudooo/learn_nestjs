@@ -1,0 +1,24 @@
+{
+  "search.exclude": {
+    "**/.yarn": true,
+    "**/.pnp.*": true
+  },
+  "eslint.nodePath": ".yarn/sdks",
+  "eslint.alwaysShowStatus": true,
+  "eslint.format.enable": true,
+  "eslint.enable": true,
+  "eslint.packageManager": "yarn",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "eslint.validate": [
+    "json"
+  ],
+  "cSpell.words": [
+    "codepaths",
+    "linebreak",
+    "tsbuildinfo",
+    "typeorm"
+  ],
+  "typescript.tsdk": ".yarn/sdks/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
+}

@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  database:
+    # image: postgres:12
+    build:
+      context: .
+      dockerfile: docker/dockerfile-postgres12
+      args:
+        - no-cache
+    restart: always
+    environment:
+      TZ: Asia/Seoul
+      POSTGRES_PASSWORD: test12
+      POSTGRES_USER: test
+      POSTGRES_DB: local
+      POSTGRES_INITDB_ARGS: --encoding=UTF-8 --locale=ko_KR.UTF-8 --data-checksums
+    ports:
+      - "5432:5432"
+    command: ["postgres", "-c", "log_statement=all"]

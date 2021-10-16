@@ -1,0 +1,33 @@
+{
+  "ignorePatterns": [".pnp.cjs"],
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [ 
+    "eslint:recommended", 
+    "plugin:@typescript-eslint/recommended", 
+    "plugin:jsdoc/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project" : "tsconfig.json",
+    "ecmaVersion": 2021,
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint", "json-format"],
+  "rules": {    
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "single", { "avoidEscape" : true }],
+    "semi": ["error", "never"],
+    "comma-dangle": ["error", "never"],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "no-return-await": "error",
+    "no-promise-executor-return": "error"
+  },
+  "settings": {
+    "json/sort-package-json": "standard",
+    "json/ignore-files": ["**/package-lock.json", ".yarn", ".vscode"],
+    "json/json-with-comments-files": ["**/tsconfig.json", ".vscode/**"]
+  }
+}
