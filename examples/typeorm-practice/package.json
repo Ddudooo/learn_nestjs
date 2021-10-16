@@ -2,19 +2,42 @@
   "name": "typeorm-practice",
   "version": "0.0.1",
   "description": "typeorm 연습용",
-  "main": "index.js",
   "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc",
+    "lint": "eslint \"{src, test}/**/*.ts\" --fix",
+    "migration": "ts-node $(yarn bin typeorm) migration:generate -n",
+    "migration:run": "typeorm migration:run",
+    "orm": "ts-node -r tsconfig-paths/register $(yarn bin typeorm)  --config src/config/ormConfig.ts",
+    "start": "ts-node src/app.ts",
+    "start:dev": "nodemon src/app.ts"
+  },
+  "nodemonConfig": {
+    "delay": "2500",
+    "exec": "yarn run ts-node",
+    "watch": "src/**/*.ts"
+  },
   "dependencies": {
     "pg": "^8.7.1",
     "reflect-metadata": "^0.1.13",
-    "typeorm": "^0.2.38"
+    "typeorm": "^0.2.38",
+    "typeorm-naming-strategies": "^2.0.0"
   },
   "devDependencies": {
     "@types/node": "^16.11.0",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
-    "eslint": "^8.0.1",
+    "eslint": "7.32.0",
+    "eslint-import-resolver-node": "^0.3.6",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jsdoc": "^36.1.1",
     "eslint-plugin-json-format": "^2.0.1",
+    "nodemon": "^2.0.13",
+    "ts-loader": "^9.2.6",
+    "ts-node": "^10.3.0",
+    "tsconfig-paths": "^3.11.0",
     "typescript": "^4.4.4"
   },
   "installConfig": {

@@ -5,7 +5,7 @@ services:
     # image: postgres:12
     build:
       context: .
-      dockerfile: docker/dockerfile-postgres12
+      dockerfile: docker/pg.dockerfile
       args:
         - no-cache
     restart: always

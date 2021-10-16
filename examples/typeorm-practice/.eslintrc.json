@@ -6,8 +6,9 @@
   },
   "extends": [ 
     "eslint:recommended", 
-    "plugin:@typescript-eslint/recommended", 
-    "plugin:jsdoc/recommended"
+    "plugin:@typescript-eslint/recommended",     
+    "plugin:jsdoc/recommended",
+    "plugin:import/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -15,19 +16,53 @@
     "ecmaVersion": 2021,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "json-format"],
+  "plugins": [
+    "@typescript-eslint", "eslint-plugin-jsdoc", "json-format", "import"
+  ],
   "rules": {    
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single", { "avoidEscape" : true }],
     "semi": ["error", "never"],
     "comma-dangle": ["error", "never"],
     "indent": ["error", 2, { "SwitchCase": 1 }],
+    "max-len": ["warn", { "code": 120 }],
     "no-return-await": "error",
-    "no-promise-executor-return": "error"
+    "no-promise-executor-return": "error",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      { "selector": "default", "format": ["camelCase"]},
+      { "selector" : "variable", "format": ["camelCase"]},
+      { "selector" : "typeLike", "format": ["PascalCase"]}
+    ],
+    "import/no-unresolved" : [2, { "ignore": ["@/.*"] }],
+    "import/order" : [
+      "error",
+      {
+        "groups": ["builtin", "external","internal"],
+        "pathGroups": [
+          {
+            "pattern": "@/",
+            "group": "internal",
+            "position": "before"
+          }
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "newlines-between": "always-and-inside-groups"
+      }
+    ]
   },
   "settings": {
     "json/sort-package-json": "standard",
     "json/ignore-files": ["**/package-lock.json", ".yarn", ".vscode"],
-    "json/json-with-comments-files": ["**/tsconfig.json", ".vscode/**"]
+    "json/json-with-comments-files": ["**/tsconfig.json", ".vscode/**"],    
+    "import/external-module-folders": [".yarn"],
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }    
   }
 }
