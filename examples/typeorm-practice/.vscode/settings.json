@@ -11,7 +11,9 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   // enable for eslint-plugin json-format
-  "eslint.validate": ["json"],
+  "eslint.validate": [
+    "json"
+  ],
   "cSpell.words": [
     "codepaths",
     "linebreak",

@@ -10,13 +10,13 @@
     "lint": "eslint \"{src, test}/**/*.ts\" --fix",
     "migration": "ts-node $(yarn bin typeorm) migration:generate -n",
     "migration:run": "typeorm migration:run",
-    "orm": "ts-node -r tsconfig-paths/register $(yarn bin typeorm)  --config src/config/ormConfig.ts",
+    "orm": "ts-node -r tsconfig-paths/register $(yarn dlx typeorm)",
     "start": "ts-node src/app.ts",
     "start:dev": "nodemon src/app.ts"
   },
   "nodemonConfig": {
     "delay": "2500",
-    "exec": "yarn run ts-node",
+    "exec": "yarn run ts-node -r tsconfig-paths/register",
     "watch": "src/**/*.ts"
   },
   "dependencies": {
@@ -30,7 +30,7 @@
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
     "eslint": "7.32.0",
-    "eslint-import-resolver-node": "^0.3.6",
+    "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-jsdoc": "^36.1.1",
     "eslint-plugin-json-format": "^2.0.1",

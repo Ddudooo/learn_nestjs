@@ -1,20 +1,19 @@
 {
-  "ignorePatterns": [".pnp.cjs"],
+  // "ignorePatterns": [".pnp.cjs"],
   "env": {
     "browser": true,
     "es2021": true
   },
   "extends": [ 
     "eslint:recommended", 
-    "plugin:@typescript-eslint/recommended",     
+    "plugin:@typescript-eslint/recommended",
     "plugin:jsdoc/recommended",
     "plugin:import/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project" : "tsconfig.json",
-    "ecmaVersion": 2021,
-    "sourceType": "module"
+    "project" : "./tsconfig.json",
+    "tsconfigRootDir": "./"
   },
   "plugins": [
     "@typescript-eslint", "eslint-plugin-jsdoc", "json-format", "import"
@@ -58,11 +57,9 @@
     "json/sort-package-json": "standard",
     "json/ignore-files": ["**/package-lock.json", ".yarn", ".vscode"],
     "json/json-with-comments-files": ["**/tsconfig.json", ".vscode/**"],    
-    "import/external-module-folders": [".yarn"],
+    "import/external-module-folders": [".yarn"],    
     "import/resolver": {
-      "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
-      }
+      "typescript": {}  
     }    
   }
 }
