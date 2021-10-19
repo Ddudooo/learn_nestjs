@@ -8,6 +8,7 @@ import { ormConfig } from '@/config/ormConfig'
 async function application() {
   const connection = await createConnection({...ormConfig})
   console.log(await connection.isConnected)
+  connection.synchronize()
 }
 console.log('starting...')
 application()
