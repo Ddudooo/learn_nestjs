@@ -22,4 +22,22 @@
 )
 ```
 
-`@ManyToOne` 엔티티에 `Cascade` 설정 및 `orpaan` 설정함으로 해당 기능을 사용할 수 있다.
+`@ManyToOne` 엔티티에 `Cascade` 설정 및 `orphan` 설정함으로 해당 기능을 사용할 수 있다.
+
+### 다대다 관계 Many to Many
+
+[공식 문서](https://typeorm.io/#/many-to-many-relations)
+
+`@ManyToMany` 데코레이터를 통해 구현할 경우
+
+`@JoinTable` 데코레이터가 필수다.
+
+중간 매핑 테이블이 암시적으로 생성.
+
+다대다 관계시 중간 테이블이 암시적으로 사용되는것이 맘에 안들경우
+
+중간 테이블을 엔티티로 격상하여 사용할 수 있다.
+
+`@ManyToMany` -> `@OneToMany | @ManyToOne, @ManyToOne | @OneToMany`
+
+오히려 `@ManyToMany`에 관련 기본 API들이 많다...

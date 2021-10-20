@@ -19,6 +19,6 @@ export const ormConfig:ConnectionOptions = {
   cli: {
     'migrationsDir': 'src/db/migrations'
   },
-  logging: true,
+  logging: "all",
   namingStrategy: new SnakeNamingStrategy()
 }

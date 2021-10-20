@@ -34,6 +34,9 @@
       { "selector" : "typeLike", "format": ["PascalCase"]}
     ],
     "import/no-unresolved" : [2, { "ignore": ["@/.*"] }],
+    "import/no-useless-path-segments": ["error", {
+      "noUselessIndex": true
+    }],
     "import/order" : [
       "error",
       {
