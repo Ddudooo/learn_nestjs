@@ -1,6 +1,5 @@
 import { createConnection } from 'typeorm'
 
-import { ormConfig } from '@/config/ormConfig'
 import { Role } from '@/roles/entity/role.entity'
 import { UserRoleMap } from '@/user_to_role/userRoleMap.entity'
 import { User } from '@/users/entity/user.entity'
@@ -9,11 +8,12 @@ import { User } from '@/users/entity/user.entity'
  * 어플리케이션 시작 엔트리 포인트.
  */
 async function application() {
-  const connection = await createConnection({...ormConfig})
+  const connection = await createConnection()
   console.log(await connection.isConnected)
-  await connection.synchronize()
+  // await connection.synchronize()
   const testUser = new User()
-  testUser.name = 'testUser'
+  testUser.name.firstName = 'test'
+  testUser.name.lastName = 'test'
   const testRole = new Role()
   testRole.name = 'testRole'
 

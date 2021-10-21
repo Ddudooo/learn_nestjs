@@ -8,11 +8,11 @@
     "prebuild": "rimraf dist",
     "build": "tsc",
     "lint": "eslint \"{src, test}/**/*.ts\" --fix",
-    "migration": "ts-node $(yarn bin typeorm) migration:generate -n",
-    "migration:run": "typeorm migration:run",
-    "orm": "ts-node -r tsconfig-paths/register $(yarn dlx typeorm)",
+    "migration": "yarn typeorm migration:generate -n",
+    "migration:run": "yarn typeorm migration:run",
     "start": "ts-node src/app.ts",
-    "start:dev": "nodemon src/app.ts"
+    "start:dev": "nodemon src/app.ts",
+    "typeorm": "ts-node -r tsconfig-paths/register $(yarn bin typeorm)"
   },
   "nodemonConfig": {
     "delay": "2500",
