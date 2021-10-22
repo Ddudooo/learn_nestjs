@@ -7,8 +7,13 @@ import { Name } from '@/users/entity/name.type'
 
 @Entity('users')
 export class User extends BaseEntity{
-    @Column((type) => Name)
-    name: Name
+    // @Column((type) => Name)
+    // name: Name
+    @Column()
+    firstName: string
+
+    @Column()
+    lastName: string
 
     @Column()
     age: number
