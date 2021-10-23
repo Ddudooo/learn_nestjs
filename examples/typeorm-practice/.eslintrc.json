@@ -1,5 +1,5 @@
 {
-  // "ignorePatterns": [".pnp.cjs"],
+  "ignorePatterns": [".pnp.cjs", "src/db/migrations"],
   "env": {
     "node": true,
     "jest": true,

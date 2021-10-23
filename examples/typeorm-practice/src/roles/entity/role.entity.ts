@@ -11,6 +11,6 @@ export class Role extends BaseEntity {
     // @OneToMany(()=> UserRoleMap, (roleMap)=>roleMap.role, { cascade: true })    
     // roleMaps: UserRoleMap[]
 
-    @ManyToMany((type) => User, (user)=> user.roles)
+    @ManyToMany(() => User, (user)=> user.roles)
     users: User[]
 }

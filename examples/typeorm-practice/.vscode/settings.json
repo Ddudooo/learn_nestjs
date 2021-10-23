@@ -10,6 +10,9 @@
   "eslint.packageManager": "yarn",
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.codeActionsOnSave": [
+    "source.organizeImports",    
+  ],
   // enable for eslint-plugin json-format
   "eslint.validate": [
     "json"
@@ -29,5 +32,6 @@
   "typescript.preferences.quoteStyle": "single",
   "javascript.preferences.quoteStyle": "single",
   "javascript.format.semicolons": "remove",
-  "typescript.format.semicolons": "remove"
+  "typescript.format.semicolons": "remove",
+  
 }

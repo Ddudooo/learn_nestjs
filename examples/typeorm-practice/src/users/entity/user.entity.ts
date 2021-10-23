@@ -3,7 +3,6 @@ import { Column, Entity, JoinTable, ManyToMany } from 'typeorm'
 import { BaseEntity } from '@/common/entity/base.entity'
 import { Role } from '@/roles/entity/role.entity'
 
-
 @Entity('users')
 export class User extends BaseEntity{
     @Column()
@@ -18,7 +17,7 @@ export class User extends BaseEntity{
     // @OneToMany(()=> UserRoleMap, roleMap=> roleMap.user, { cascade: true })
     // roleMaps: UserRoleMap[]
 
-    @ManyToMany((type) => Role, role=> role.users, { cascade: true})
+    @ManyToMany(() => Role, role=> role.users, { cascade: true})
     @JoinTable({
       name: 'user_role',
       joinColumn: { name: 'role_id', referencedColumnName: 'id'},
