@@ -1,13 +1,16 @@
-import { Column, Entity, OneToMany } from 'typeorm'
+import { Column, Entity, ManyToMany } from 'typeorm'
 
 import { BaseEntity } from '@/common/entity/base.entity'
-import { UserRoleMap } from '@/user_to_role/userRoleMap.entity'
+import { User } from '@/users/entity/user.entity'
 
 @Entity('roles')
 export class Role extends BaseEntity {
     @Column()
     name: string
 
-    @OneToMany(()=> UserRoleMap, (roleMap)=>roleMap.role, { cascade: true })    
-    roleMaps: UserRoleMap[]
+    // @OneToMany(()=> UserRoleMap, (roleMap)=>roleMap.role, { cascade: true })    
+    // roleMaps: UserRoleMap[]
+
+    @ManyToMany((type) => User, (user)=> user.roles)
+    users: User[]
 }

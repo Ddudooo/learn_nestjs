@@ -1,7 +1,8 @@
 {
   // "ignorePatterns": [".pnp.cjs"],
   "env": {
-    "browser": true,
+    "node": true,
+    "jest": true,
     "es2021": true
   },
   "extends": [ 
@@ -18,7 +19,23 @@
   "plugins": [
     "@typescript-eslint", "eslint-plugin-jsdoc", "json-format", "import"
   ],
-  "rules": {    
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "object-curly-newline": ["error", {
+      "ObjectExpression": {
+        "consistent": true
+      },      
+      "ImportDeclaration": {
+        "multiline": true
+      }      
+    }],
+    "object-property-newline": ["error", {
+      "allowAllPropertiesOnSameLine": true
+    }],
+    "key-spacing": "error",
+    "object-shorthand": ["error"],
+    "eol-last": "error",    
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single", { "avoidEscape" : true }],
     "semi": ["error", "never"],

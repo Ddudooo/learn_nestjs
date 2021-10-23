@@ -1,14 +1,11 @@
-import { Column, Entity, OneToMany } from 'typeorm'
+import { Column, Entity, JoinTable, ManyToMany } from 'typeorm'
 
 import { BaseEntity } from '@/common/entity/base.entity'
-import { UserRoleMap } from '@/user_to_role/userRoleMap.entity'
-import { Name } from '@/users/entity/name.type'
+import { Role } from '@/roles/entity/role.entity'
 
 
 @Entity('users')
 export class User extends BaseEntity{
-    // @Column((type) => Name)
-    // name: Name
     @Column()
     firstName: string
 
@@ -18,6 +15,14 @@ export class User extends BaseEntity{
     @Column()
     age: number
 
-    @OneToMany(()=> UserRoleMap, roleMap=> roleMap.user, { cascade: true })
-    roleMaps: UserRoleMap[]
+    // @OneToMany(()=> UserRoleMap, roleMap=> roleMap.user, { cascade: true })
+    // roleMaps: UserRoleMap[]
+
+    @ManyToMany((type) => Role, role=> role.users, { cascade: true})
+    @JoinTable({
+      name: 'user_role',
+      joinColumn: { name: 'role_id', referencedColumnName: 'id'},
+      inverseJoinColumn: { name: 'role_id'}
+    })
+    roles: Role[]
 }
