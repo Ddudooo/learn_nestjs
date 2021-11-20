@@ -3,7 +3,7 @@
 .vscode
 
 # build
-dist
+dist/
 
 # testing
 /coverage
