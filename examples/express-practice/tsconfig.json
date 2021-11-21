@@ -101,5 +101,6 @@
       "@test/*" : ["test/*"]
     }
   },
+  "include": ["src/**/*.ts"],
   "exclude": ["dist"]
 }
