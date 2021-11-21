@@ -953,6 +953,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:0.5.5"
       ],
       [
+        "module-alias",
+        "npm:2.2.2"
+      ],
+      [
         "ms",
         "npm:2.1.2"
       ],
@@ -1446,6 +1450,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-import", "virtual:d97e8f0f52641b381b8cc9a105abe66dc6fdf726be62dc1442eb04eee2d7f682e5fee31d8f044490200140e7193ea87c6262b80e6860752d3fdee51a0497a386#npm:2.25.3"],
             ["eslint-plugin-prettier", "virtual:d97e8f0f52641b381b8cc9a105abe66dc6fdf726be62dc1442eb04eee2d7f682e5fee31d8f044490200140e7193ea87c6262b80e6860752d3fdee51a0497a386#npm:4.0.0"],
             ["express", "npm:4.17.1"],
+            ["module-alias", "npm:2.2.2"],
             ["prettier", "npm:2.4.1"],
             ["rimraf", "npm:3.0.2"],
             ["ts-node", "virtual:d97e8f0f52641b381b8cc9a105abe66dc6fdf726be62dc1442eb04eee2d7f682e5fee31d8f044490200140e7193ea87c6262b80e6860752d3fdee51a0497a386#npm:10.4.0"],
@@ -3417,6 +3422,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-import", "virtual:d97e8f0f52641b381b8cc9a105abe66dc6fdf726be62dc1442eb04eee2d7f682e5fee31d8f044490200140e7193ea87c6262b80e6860752d3fdee51a0497a386#npm:2.25.3"],
             ["eslint-plugin-prettier", "virtual:d97e8f0f52641b381b8cc9a105abe66dc6fdf726be62dc1442eb04eee2d7f682e5fee31d8f044490200140e7193ea87c6262b80e6860752d3fdee51a0497a386#npm:4.0.0"],
             ["express", "npm:4.17.1"],
+            ["module-alias", "npm:2.2.2"],
             ["prettier", "npm:2.4.1"],
             ["rimraf", "npm:3.0.2"],
             ["ts-node", "virtual:d97e8f0f52641b381b8cc9a105abe66dc6fdf726be62dc1442eb04eee2d7f682e5fee31d8f044490200140e7193ea87c6262b80e6860752d3fdee51a0497a386#npm:10.4.0"],
@@ -4416,6 +4422,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/mkdirp-npm-1.0.4-37f6ef56b9-a96865108c.zip/node_modules/mkdirp/",
           "packageDependencies": [
             ["mkdirp", "npm:1.0.4"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["module-alias", [
+        ["npm:2.2.2", {
+          "packageLocation": "./.yarn/cache/module-alias-npm-2.2.2-576bd37c03-4b5543f834.zip/node_modules/module-alias/",
+          "packageDependencies": [
+            ["module-alias", "npm:2.2.2"]
           ],
           "linkType": "HARD",
         }]
