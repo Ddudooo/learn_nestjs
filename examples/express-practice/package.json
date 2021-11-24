@@ -7,10 +7,10 @@
   "scripts": {
     "lint": "eslint \"{src, test}/**/*.ts\" --fix",
     "prebuild": "rimraf dist",
-    "build": "yarn pnpify tsc",
+    "build": "tsc",
     "prestart": "yarn build",
-    "start:dev": "yarn pnpify tsc-watch --onSuccess \"node dist/src/app.js\"",
-    "start": "NODE_OPTIONS=\"--require $(pwd)/.pnp.cjs\" node dist/src/app.js",
+    "start:dev": "tsc-watch --onSuccess \"node dist/src/app.js\"",
+    "start": "node dist/src/app.js",
     "test": "test"
   },
   "author": "",
@@ -40,6 +40,6 @@
     "typescript": "^4.5.2"
   },
   "_moduleAliases": {
-    "@" : "dist/src"
+    "@": "dist/src"
   }
 }
