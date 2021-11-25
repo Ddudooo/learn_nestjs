@@ -19,11 +19,13 @@
     "@yarnpkg/pnpify": "^3.1.1-rc.5",
     "express": "^4.17.1",
     "module-alias": "^2.2.2",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
     "@types/node": "^16.11.9",
+    "@types/winston": "^2.4.4",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "eslint": "^7.32.0",
