@@ -47,42 +47,9 @@ const logger = winston.createLogger({
           info.level = `[${info.level.toUpperCase()}]`
           return info
         })(),
-        format.colorize(),
-        format.printf((info: TransformableInfo) => {
-          const prefix = `${info.timestamp} ${process.pid} ${info.level}`
-          const msg = []
-          if (info.message.indexOf('\n') > 0 || info.message.indexOf('\r') > 0) {
-            // eslint-disable-next-line no-restricted-syntax
-            for (const a of info.message.split('\n')) {
-              if (a.trim().length > 0) {
-                // eslint-disable-next-line no-restricted-syntax
-                for (const b of a.split('\r')) {
-                  if (b.trim().length > 0) {
-                    msg.push(`${prefix} ${b}`)
-                  }
-                }
-              }
-            }
-          } else {
-            msg.push(`${prefix} ${info.message}`)
-          }
-
-          if (info.stack && env !== 'production') {
-            // eslint-disable-next-line no-restricted-syntax
-            for (const a of info.stack.split('\n')) {
-              if (a.trim().length > 0) {
-                // eslint-disable-next-line no-restricted-syntax
-                for (const b of a.split('\r')) {
-                  if (b.trim().length > 0) {
-                    msg.push(`${prefix} ${b}`)
-                  }
-                }
-              }
-            }
-          }
-          msg.push(`${JSON.stringify(info.headers)}`)
-          return msg.join('\n')
-        })
+        format.prettyPrint(),
+        format.colorize({ all: true }),
+        winston.format.printf(info => `${info.timestamp} ${process.pid} ${info.level}: ${info.message}`)
       ),
     }),
   ],
