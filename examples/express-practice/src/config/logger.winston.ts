@@ -13,7 +13,8 @@ const config = {
     verbose: 4,
     socket: 5,
     trace: 6,
-    debug: 7,
+    morgan: 7,
+    debug: 8,
   },
   colors: {
     error: 'red bold',
@@ -23,9 +24,13 @@ const config = {
     verbose: 'cyan',
     socket: 'magenta bold',
     trace: 'yellow',
+    morgan: 'magenta bold',
     debug: 'blue bold',
   },
 }
+
+const customColorize = winston.format.colorize()
+customColorize.addColors(config.colors)
 
 const logger = winston.createLogger({
   levels: config.levels,
@@ -48,11 +53,16 @@ const logger = winston.createLogger({
           return info
         })(),
         format.prettyPrint(),
-        format.colorize({ all: true }),
-        winston.format.printf(info => `${info.timestamp} ${process.pid} ${info.level}: ${info.message}`)
+        customColorize,
+        winston.format.printf(info => {
+          if (info.level === 'MORGAN') {
+            return `${info.timestamp} ${process.pid} ${info.level} ${info.message}`
+          }
+          return `${info.timestamp} ${process.pid} ${info.level}: ${info.message}`
+        })
       ),
     }),
   ],
-})
+}) as winston.Logger & Record<keyof typeof config.levels, winston.LeveledLogMethod>
 
 export default logger
