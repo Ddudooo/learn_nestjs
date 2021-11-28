@@ -1,7 +1,8 @@
 import { Router } from 'express'
 import { instanceToPlain, plainToInstance } from 'class-transformer'
 import logger from '@/config/logger.winston'
-import { Cat, catRepo } from '@/cats.modle'
+import { catRepo } from '@/router/cats/repository/cats.repository'
+import Cat from '@/router/cat.model'
 
 const CatsRouter = Router()
 

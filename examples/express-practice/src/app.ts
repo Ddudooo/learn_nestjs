@@ -2,7 +2,7 @@ import 'module-alias/register'
 import express, { Request, Response } from 'express'
 import { RequestAssignId, RequestLogging } from '@/middleware/requestLogging.middleware'
 import logger from '@/config/logger.winston'
-import CatsRouter from '@/router/cats/cats.router'
+import CatsRouter from '@/router/cats/router/cats.router'
 import 'reflect-metadata'
 
 logger.info('Express Server started...')
