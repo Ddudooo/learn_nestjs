@@ -82,6 +82,16 @@ class CatRepository {
     this.sequence += 1
     return cat
   }
+
+  removeById(id: number | string) {
+    const found = this.findById(id)
+    if (found) {
+      const index = this.cats.indexOf(found)
+      this.cats.splice(index, 1)
+      return true
+    }
+    return false
+  }
 }
 
 export const catRepo = new CatRepository()

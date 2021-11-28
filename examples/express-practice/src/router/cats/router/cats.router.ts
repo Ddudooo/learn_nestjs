@@ -27,6 +27,9 @@ CatsRouter.get('', (req, res) => {
 CatsRouter.get('/:id', (req, res) => {
   try {
     const foundCat = catRepo.findById(parseInt(req.params.id, 10))
+    if (!foundCat) {
+      throw new Error(`Not found cat by id[${req.params.id}]`)
+    }
     res.status(200).send({
       statusCode: 200,
       message: {
@@ -63,7 +66,6 @@ CatsRouter.post('', (req, res) => {
 })
 
 CatsRouter.patch('/:id', (req, res) => {
-  //
   try {
     const update = {
       // @ts-ignore
@@ -83,6 +85,24 @@ CatsRouter.patch('/:id', (req, res) => {
       statusCode: 400,
       message: '고양이 정보 수정에 실패했습니다.',
       detail: `요청값을 확인해주세요. - ${JSON.stringify(req.body)}`,
+    })
+  }
+})
+
+CatsRouter.delete('/:id', (req, res) => {
+  try {
+    const isDeleted = catRepo.removeById(req.params.id)
+    if (isDeleted) {
+      res.status(204).send()
+    } else {
+      throw new Error('deleted fail')
+    }
+  } catch (err) {
+    logger.error(err)
+    res.status(400).send({
+      statusCode: 400,
+      message: '고양이 정보 제거에 실패했습니다.',
+      detail: `요청값을 확인해주세요. - ${JSON.stringify(req.params.id)}`,
     })
   }
 })
