@@ -62,4 +62,29 @@ CatsRouter.post('', (req, res) => {
   }
 })
 
+CatsRouter.patch('/:id', (req, res) => {
+  //
+  try {
+    const update = {
+      // @ts-ignore
+      id: req.params.id,
+      ...(req.body as Cat),
+    }
+    const updated = catRepo.save(plainToInstance(Cat, update))
+    res.status(200).send({
+      statusCode: 200,
+      message: {
+        cat: updated,
+      },
+    })
+  } catch (err) {
+    logger.error(err)
+    res.status(400).send({
+      statusCode: 400,
+      message: '고양이 정보 수정에 실패했습니다.',
+      detail: `요청값을 확인해주세요. - ${JSON.stringify(req.body)}`,
+    })
+  }
+})
+
 export default CatsRouter

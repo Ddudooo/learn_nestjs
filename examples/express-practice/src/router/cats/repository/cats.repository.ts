@@ -60,6 +60,22 @@ class CatRepository {
   }
 
   save(cat: Cat) {
+    if (cat.id) {
+      // something
+      const found = this.findById(cat.id)
+      // eslint-disable-next-line no-unused-vars
+      if (found) {
+        const merged = {
+          ...found,
+          ...cat,
+        }
+        const index = this.cats.indexOf(found)
+        const saved = plainToInstance(Cat, merged)
+        this.cats.splice(index, 1, saved)
+        return saved
+      }
+      throw new Error(`고양이를 찾을 수 없습니다. - ${cat.id}`)
+    }
     // eslint-disable-next-line no-param-reassign
     cat.id = this.sequence
     this.cats.push(cat)
