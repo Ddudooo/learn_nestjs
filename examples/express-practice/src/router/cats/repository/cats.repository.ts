@@ -2,7 +2,7 @@
 import { plainToInstance } from 'class-transformer'
 import Cat from '@/router/cat.model'
 
-export const initCats = [
+const initCats = [
   {
     name: '러시안 블루',
     age: 5,
@@ -40,7 +40,7 @@ export const initCats = [
   },
 ]
 
-class CatRepository {
+export default class CatRepository {
   private readonly cats: Cat[] = []
 
   private sequence: number = 0
@@ -93,5 +93,3 @@ class CatRepository {
     return false
   }
 }
-
-export const catRepo = new CatRepository()
