@@ -1,0 +1,15 @@
+{
+  "name": "learn_nestjs",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "https://github.com/Ddudooo/learn_nestjs.git",
+  "author": "Ddudooo <igoa.work@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "husky": "^7.0.4"
+  },
+  "devDependencies": {
+    "prettier": "^2.5.0",
+    "pretty-quick": "^3.1.2"
+  }
+}
