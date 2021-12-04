@@ -1,5 +1,4 @@
 import {
-  Column,
   CreateDateColumn,
   DeleteDateColumn,
   PrimaryGeneratedColumn,
@@ -8,21 +7,29 @@ import {
 } from 'typeorm'
 
 export abstract class BaseEntity {
-  @PrimaryGeneratedColumn('uuid')
-  id: string
+  @PrimaryGeneratedColumn()
+  id: number
 
-  @Column('varchar')
-  name: string
-
-  @CreateDateColumn('timestamptz')
+  @CreateDateColumn({
+    type: 'timestamptz',
+    nullable: false,
+    default: new Date(),
+  })
   createAt: Date
 
-  @UpdateDateColumn('timestamptz')
+  @UpdateDateColumn({
+    type: 'timestamptz',
+    nullable: false,
+    default: new Date(),
+  })
   updateAt: Date
 
-  @DeleteDateColumn('timestamptz')
-  deletedAt: Date
+  @DeleteDateColumn({
+    type: 'timestamptz',
+    nullable: true,
+  })
+  deletedAt!: Date
 
-  @VersionColumn('integer')
+  @VersionColumn()
   version: number
 }
