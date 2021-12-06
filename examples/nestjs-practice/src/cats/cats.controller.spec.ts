@@ -23,10 +23,6 @@ describe('Cat 컨트롤러 유닛 테스트', () => {
     mockService = module.get<CatsService>(CatsService)
   })
 
-  it('should be defined', () => {
-    expect(controller).toBeDefined()
-  })
-
   it('생성 요청 테스트', async () => {
     // given
     const creatDto = {
@@ -54,5 +50,28 @@ describe('Cat 컨트롤러 유닛 테스트', () => {
     const result = await controller.findOne('1')
     // then
     expect(result).toBeInstanceOf(Cat)
+  })
+
+  it('변경 요청 테스트', async () => {
+    // given
+    const request = { name: 'test', age: 10, species: 'TEST' }
+    mockService.update = jest
+      .fn()
+      .mockReturnValue(plainToInstance(Cat, request))
+
+    // when
+    const result = await controller.update('1', request)
+
+    // then
+    expect(result).toBeInstanceOf(Cat)
+  })
+
+  it('삭제 요청 테스트', async () => {
+    // given
+    mockService.remove = jest.fn().mockReturnValue(1)
+    // when
+    const result = await controller.remove('1')
+    // then
+    expect(result).toEqual(1)
   })
 })
