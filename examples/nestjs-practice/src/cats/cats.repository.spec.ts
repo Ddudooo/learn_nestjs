@@ -56,4 +56,77 @@ describe('리포지토리 유닛 테스트', () => {
     expect(saved.age).toEqual(catDto.age)
     expect(saved.species).toEqual(catDto.species)
   })
+
+  it('정상적으로 조회가 가능해야 한다.', async () => {
+    // given
+    const createDto: Cat = plainToInstance(Cat, {
+      name: 'TEST_CAT',
+      age: 10,
+      species: 'TEST',
+    })
+    const saved = await repository.save(createDto, { reload: true })
+
+    // when
+    const found = await repository.findOne(saved.id)
+
+    // then
+    expect(found).toBeDefined()
+    expect(found.name).toEqual(saved.name)
+    expect(found.age).toEqual(saved.age)
+    expect(found.species).toEqual(saved.species)
+    expect(found.id).toEqual(saved.id)
+  })
+
+  it('정상적으로 수정이 가능해야 한다.', async () => {
+    // given
+    const createDto: Cat = plainToInstance(Cat, {
+      name: 'TEST_CAT',
+      age: 10,
+      species: 'TEST',
+    })
+    const saved = await repository.save(createDto, { reload: true })
+
+    const updateDto = {
+      name: 'UPDATE_CAT',
+      age: 10,
+      species: 'UPDATE',
+    }
+
+    // when
+    const updated = await repository.save(
+      {
+        ...saved,
+        ...updateDto,
+      },
+      { reload: true },
+    )
+
+    // then
+    expect(updated).toBeDefined()
+    expect(updated.name).toEqual(updateDto.name)
+    expect(updated.age).toEqual(updateDto.age)
+    expect(updated.species).toEqual(updateDto.species)
+    expect(updated.id).toEqual(saved.id)
+  })
+
+  it('정상적으로 삭제가 가능해야 한다.', async () => {
+    // given
+    const createDto: Cat = plainToInstance(Cat, {
+      name: 'TEST_CAT',
+      age: 10,
+      species: 'TEST',
+    })
+    const saved = await repository.save(createDto, { reload: true })
+
+    // when
+    const deleteResult = await repository.softDelete(saved.id)
+
+    // then
+    expect(deleteResult).toBeDefined()
+    expect(deleteResult.affected).toEqual(1)
+
+    const found = await repository.findOne(saved.id)
+
+    expect(found).toBeUndefined()
+  })
 })
