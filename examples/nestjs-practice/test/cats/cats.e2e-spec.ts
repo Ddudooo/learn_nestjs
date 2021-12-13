@@ -56,5 +56,27 @@ describe('Cat API E2E 테스트', () => {
         expect(foundCat.body).toMatchObject(createdCat)
       }),
     )
+
+    it(
+      '리소스들이 정상적으로 조회되야 한다.',
+      runInTransaction(async () => {
+        // given
+        const catRepo = connection.getCustomRepository(CatsRepository)
+        for (let i = 0; i < 10; i++) {
+          const createCat = plainToInstance(Cat, {
+            name: 'TEST_CAT_' + i,
+            age: 10,
+            species: 'TEST',
+          })
+          await catRepo.save(createCat)
+        }
+        // when
+        const foundCat = await request(app.getHttpServer()).get(`/cats`)
+
+        // then
+        expect(foundCat.statusCode).toEqual(HttpStatus.OK)
+        expect(foundCat.body).toBe(expect.any(Array))
+      }),
+    )
   })
 })
