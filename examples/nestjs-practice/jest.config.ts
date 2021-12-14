@@ -1,10 +1,9 @@
 import { cpus } from 'os'
-import type { Config } from '@jest/types'
 
 const cpuCount = cpus().length
 const maxConcurrency = cpuCount > 4 ? cpuCount - 2 : cpuCount
 
-const config: Config.ConfigGlobals = {
+const config = {
   preset: 'ts-jest',
   globals: {
     'ts-jest': {
@@ -12,7 +11,7 @@ const config: Config.ConfigGlobals = {
     },
   },
   moduleFileExtensions: ['js', 'json', 'ts'],
-  rootDir: '../../',
+  rootDir: './',
   testRegex: '.spec.ts$',
   transform: {
     '^.+\\.(t|j)s$': 'ts-jest',
