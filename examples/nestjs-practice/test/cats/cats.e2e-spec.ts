@@ -79,4 +79,29 @@ describe('Cat API E2E 테스트', () => {
       }),
     )
   })
+
+  describe('Cat 생성 E2E 테스트', () => {
+    it(
+      '생성 요청이 정상적으로 처리되어야 한다.',
+      runInTransaction(async () => {
+        // given
+        const createDto = {
+          age: 3,
+          name: 'TEST_CAT',
+          species: 'TEST',
+        }
+
+        // when
+        const response = await request(app.getHttpServer())
+          .post('/cats')
+          .send(createDto)
+
+        // then
+        expect(response.statusCode).toEqual(HttpStatus.CREATED)
+        expect(response.body.name).toEqual(createDto.name)
+        expect(response.body.age).toEqual(createDto.age)
+        expect(response.body.species).toEqual(createDto.species)
+      }),
+    )
+  })
 })
