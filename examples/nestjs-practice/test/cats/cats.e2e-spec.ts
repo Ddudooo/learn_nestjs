@@ -104,4 +104,36 @@ describe('Cat API E2E 테스트', () => {
       }),
     )
   })
+
+  describe('Cat 변경 E2E 테스트', () => {
+    it(
+      '변경 요청이 정상적으로 처리되어야 한다.',
+      runInTransaction(async () => {
+        // given
+        const catRepo = connection.getCustomRepository(CatsRepository)
+        const createCat = plainToInstance(Cat, {
+          name: 'TEST_CAT',
+          age: 10,
+          species: 'TEST',
+        })
+        const createdCat = await catRepo.save(createCat, { reload: true })
+        const updateDto = {
+          age: 3,
+          name: 'UPDATE_CAT',
+          species: 'UPDATE',
+        }
+
+        // when
+        const response = await request(app.getHttpServer())
+          .post(`/cats/${createdCat.id}`)
+          .send(updateDto)
+
+        // then
+        expect(response.statusCode).toEqual(HttpStatus.CREATED)
+        expect(response.body.name).toEqual(updateDto.name)
+        expect(response.body.age).toEqual(updateDto.age)
+        expect(response.body.species).toEqual(updateDto.species)
+      }),
+    )
+  })
 })
