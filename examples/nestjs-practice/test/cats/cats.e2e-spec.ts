@@ -129,7 +129,7 @@ describe('Cat API E2E 테스트', () => {
           .send(updateDto)
 
         // then
-        expect(response.statusCode).toEqual(HttpStatus.CREATED)
+        expect(response.statusCode).toEqual(HttpStatus.OK)
         expect(response.body.name).toEqual(updateDto.name)
         expect(response.body.age).toEqual(updateDto.age)
         expect(response.body.species).toEqual(updateDto.species)
