@@ -136,4 +136,28 @@ describe('Cat API E2E 테스트', () => {
       }),
     )
   })
+
+  describe('Cat 삭제 E2E 테스트', () => {
+    it(
+      '삭제 요청이 정상적으로 처리되어야 한다.',
+      runInTransaction(async () => {
+        // given
+        const catRepo = connection.getCustomRepository(CatsRepository)
+        const createCat = plainToInstance(Cat, {
+          name: 'TEST_CAT',
+          age: 10,
+          species: 'TEST',
+        })
+        const createdCat = await catRepo.save(createCat, { reload: true })
+
+        // when
+        const response = await request(app.getHttpServer()).delete(
+          `/cats/${createdCat.id}`,
+        )
+
+        // then
+        expect(response.statusCode).toEqual(HttpStatus.NO_CONTENT)
+      }),
+    )
+  })
 })
