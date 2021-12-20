@@ -1,4 +1,4 @@
-import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
+import { SnakeNamingStrategy } from 'typeorm-naming-strategies'
 
 const TypeOrmConfig = {
   type: 'postgres',
@@ -16,6 +16,6 @@ const TypeOrmConfig = {
   },
   logging: 'all',
   synchronize: true,
-};
+}
 
-export default TypeOrmConfig;
+export default TypeOrmConfig
